@@ -1,7 +1,7 @@
 services:
-  tello_ros_build:
-    container_name: tello_ros_build
-    image: tello_ros
+  tello_ros2_build:
+    container_name: tello_ros2_build
+    image: tello_ros2
     build: 
       context: ..
       dockerfile: docker/Dockerfile

@@ -1,7 +1,7 @@
 services:
-  tello_ros:
-    container_name: tello_ros
-    image: tello_ros  
+  tello_ros2:
+    container_name: tello_ros2
+    image: tello_ros2 
     runtime: nvidia
     environment:
       DISPLAY: $DISPLAY

@@ -15,14 +15,17 @@ RUN apt-get upgrade -y
 RUN apt-get install -y libasio-dev
 RUN apt-get install -y python3-pip
 RUN yes | pip3 install 'transformations==2018.9.5'
+RUN apt-get update && apt-get install -y curl && \
+    curl -o requirements.txt https://raw.githubusercontent.com/VikramR3/tello_ros2/main/requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
-WORKDIR /work/tello_ros_ws/src
+WORKDIR /work/tello_ros2_ws/src
 
-RUN git clone https://github.com/clydemcqueen/tello_ros.git
+RUN git clone https://github.com/VikramR3/tello_ros2.git
 RUN git clone https://github.com/ptrmu/ros2_shared.git
 RUN git clone https://github.com/ptrmu/fiducial_vlam.git
 
-WORKDIR /work/tello_ros_ws
+WORKDIR /work/tello_ros2_ws
 
 RUN rosdep install -y --from-paths . --ignore-src
 
